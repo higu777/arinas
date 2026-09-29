@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة خاصة</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Tahoma', sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* تصميم القلب النابض */
+        .heart {
+            font-size: 100px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s ease;
+            animation: pulse 1.5s infinite;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        .heart:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* تنسيق الرسالة المخفية */
+        .message {
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        p.instruction {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="instruction">اضغطي على القلب لتري شيئاً جميلاً ❤️</p>
+        <div class="heart" onclick="showMessage()">❤️</div>
+        <div id="loveMessage" class="message">اححح عليك ازين</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const msg = document.getElementById("loveMessage");
+            msg.classList.add("show");
+        }
+    </script>
+
+</body>
+</html>
